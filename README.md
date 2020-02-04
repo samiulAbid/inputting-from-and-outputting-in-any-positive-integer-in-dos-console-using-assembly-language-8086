@@ -1,4 +1,4 @@
-We know that we can take a single digit number as input(not a number more than two digits,i.e, more than 9,considering   
+We know that we can take a single digit number as input(not a number more than two digits,i.e, more than 9,considering 
 integers only) from dosbox console and also can't show numbers greater than 9 as output in dosbox console.
 Therefore, in order to remove these problems, two codes(.asm) are given here for learners and enthusiasts. 
 
