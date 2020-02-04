@@ -1,9 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;   PROGRAM TO INPUT & PRINT ANY  NON-NEGATIVE INTEGER <65,536  ;
-;	  IN ASSEMBLY LANGUAGE(8086) (implemented in DOSBOX):       ;
-; 					      Coded by-                             ;
-; 				   Samiul Abid Chowdhury,                       ;
-;			  Student at department of EEE, BUET                ;
+;        IN ASSEMBLY LANGUAGE(8086) (implemented in DOSBOX):    ;
+;			  Coded by-                             ;
+; 		    Samiul Abid Chowdhury,                      ;
+;	      Student at department of EEE, BUET                ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 .model large
@@ -14,7 +14,7 @@
 ; below and you will be able to understand everything by yourself ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .data
-sum dw 0 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+sum dw 0         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		 ; "sum" WILL CONTAIN THE LATEST INPUT NUMBER ;
 		 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		 ;if this code is run as it is now, then a single
@@ -26,7 +26,7 @@ sum dw 0 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		 ;contain the 2nd number in it as this will be the latest input 
 		 ;number so far.This happening will continue after taking each input.
 string1 db "Enter the number here: $"
-num1 db 10 dup(?)  ;the 1st input number(may be the only) you'll enter
+num1 db 10 dup(?)                  ;the 1st input number(may be the only) you'll enter
 				   ;in the dosbox console will be stored in this array
 				   ;each digit one after another, e.g: if the 1st number
 				   ;you take as input from the dos console is 245, then
@@ -67,19 +67,19 @@ num1 db 10 dup(?)  ;the 1st input number(may be the only) you'll enter
 				   ;MAIN PROC BECAUSE YOU KNOW, EVERY TIME A FUNCTION IS
 				   ;CALLED THE FUNCTION RETURNS IN 'AX' REGISTER.
 
-first_address dw ? ;first address of the latest input number,
+first_address dw ?                 ;first address of the latest input number,
 				   ;e.g: num1 or num2(whichever is the latest).
 				   ;You don't need to do anything with this variable.
 
-lenNum dw ?	   	   ;it contains the length of latest input number
+lenNum dw ?                        ;it contains the length of latest input number
 
 ;string_numLength db "The length of the number is: $"
-					;Uncomment this variable if u want to print
-					;the length of(no of digits in) the input.
+				    ;Uncomment this variable if u want to print
+				    ;the length of(no of digits in) the input.
 
 ;stringReprintInputNumber db "The number you just entered is: $"
-					;Uncomment this variable if you want to reprint
-					;the input in dos console.
+				     ;Uncomment this variable if you want to reprint
+				     ;the input in dos console.
 
 base_number dw ? ;You don't need to do anything with this variable.
 power dw ?       ;You don't need to do anything with this variable.
@@ -177,6 +177,7 @@ call inputAnyNumber
 ;Now, "num1" contains the input number's digits sequentially as an array
 ;& "lenNum" contains length of(or number of digits in) the input number.
 
+
 ;;*************PRINTING THE LENGTH OF THE NUMBER ABOVE begins:***************
 ;;Uncomment the portion below if necessary, otherwise you may just delete it.
 ;;If u uncomment this section, then prior to the beginning of this portion,
@@ -184,6 +185,7 @@ call inputAnyNumber
 ;;If u've pushed their values, then pop them up after this portion ends.
 ;;If altering ur ax,dx values don't create any problem for you,you don't need
 ;;to do push-pop for this portion. If you are not sure what to do,do push-pop.
+;;
 ;lea dx,string_numLength
 ;mov ah,09h
 ;int 21h
@@ -194,12 +196,14 @@ call inputAnyNumber
 ;**************PRINTING THE LENGTH OF THE NUMBER ABOVE ends*******************
 
 
+
 ;;************REPRINTING THE INPUT NUMBER IN DOS CONSOLE begins:**************
 ;;Uncomment this portion if u want to print back the input again in dos console.
 ;;If you uncomment this portion, then at first push ax,cx and dx(if required),
 ;;if u've pushed these values, then pop these values after this portion ends.
 ;;If altering ur ax,cx,dx values don't create any problem for u, u don't need
 ;;to do push-pop for this portion. If you are not sure what to do,do push-pop.
+;;
 ;call newline_function
 ;lea dx,stringReprintInputNumber
 ;mov ah,09h
